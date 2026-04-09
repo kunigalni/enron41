@@ -52,11 +52,12 @@ def preprocess_emails(df, text_column="text", subject_column="subject"):
             if token.is_alpha and not token.is_stop
         ]
         tokens_list.append(tokens)
-        if i == 0:
-            print("RAW:", texts[i][:300])
-            print("CLEAN:", df.loc[i, "clean_text"][:300])
-            print("TOKENS:", tokens)
-
+        
+        # Verify Lemmatization working 
+        # if i == 0:
+        #     print("RAW:", texts[i][:300])
+        #     print("CLEAN:", df.loc[i, "clean_text"][:300])
+        #     print("TOKENS:", tokens)
 
         if i % 500 == 0:
             print(f"Processed {i} emails...")

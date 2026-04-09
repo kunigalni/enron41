@@ -1,3 +1,4 @@
+
 STEP 1 - Preprocessing 
 1. Load Dataset and get all emails (takes abt a minute to load everything)
 2. Apply a filter to only look at emails between Aug - Dec 2001

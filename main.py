@@ -42,7 +42,7 @@ def fetch_all_emails(host, index, batch_size=5000):
 
     print(f"[fetch_all_emails] Total raw hits before dedupe: {len(all_hits)}")
 
-    # Deduplicate by ES _id
+    # Deduplicate by _id
     unique = {h["_id"]: h for h in all_hits}
     print(f"[fetch_all_emails] Unique documents after dedupe: {len(unique)}")
 
@@ -83,10 +83,15 @@ class Main:
         #tdif
         tfidf_matrix, features = kf.compute_tfidf()
 
+        #USE THIS AS INPUT FOR SENTIMENT ANALYSIS - top 500 emails with highest count of spe terms 
         kf.compute_keyword_counts()
+        top_500 = kf.get_top_emails(500)
+        print(top_500.head())
 
-        ts = kf.compute_time_series(freq='W')
+        # ts = kf.compute_time_series(freq='W')
 
+        #THIS CAN ALSO BE USED FOR SENTIMENT ANALYSIS - employees with highest count of spe terms
+        #currently only returns top 5, can be modified if we are using this 
         emp_risk = kf.compute_employee_risk()
 
 if __name__ == "__main__":

@@ -7,3 +7,9 @@ STEP 1 - Preprocessing
 5. Remove duplicates 
 6. Apply lemmatization (can verify by uncommenting the print statement)
 
+STEP 2 - Keyword Frequency 
+1. Count risk words 
+2. TD IDF to find important words in dataset 
+3. Count risk terms in each email 
+4. Return 500 top emails with highest risk word frequency 
+5. Return employees with highest risk word frequency 

@@ -16,7 +16,15 @@ SIGNATURE_MARKERS = [
     r"Sincerely,",
     r"Thank you,",
     r"This e-mail.*?confidential",
+    r"-----Original Message-----",
+    r"From: .*@.*",
+    r"Sent: .*",
+    r"Phone: .*",
+    r"Fax: .*",
+    r"www\..*",
+    r"\d{3}-\d{3}-\d{4}",  # phone numbers
 ]
+
 def remove_signatures(text):
     for marker in SIGNATURE_MARKERS:
         text = re.split(marker, text, flags=re.IGNORECASE)[0]

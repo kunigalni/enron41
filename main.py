@@ -3,6 +3,7 @@ import pandas as pd
 from dateutil import parser
 from preprocessing import preprocess_emails
 from keywordFrequency import KeywordFrequency
+from sentiment import add_vader_scores
 
 def fetch_all_emails(host, index, batch_size=5000):
     url = f"{host}{index}/_search?scroll=10m"
@@ -86,7 +87,9 @@ class Main:
         #USE THIS AS INPUT FOR SENTIMENT ANALYSIS - top 500 emails with highest count of spe terms 
         kf.compute_keyword_counts()
         top_500 = kf.get_top_emails(500)
-        print(top_500.head())
+        # Part 3: VADER sentiment (+ urgency hits) on top keyword-ranked emails only
+        top_500_scored = add_vader_scores(top_500)
+        print(top_500_scored.head())
 
         # ts = kf.compute_time_series(freq='W')
 

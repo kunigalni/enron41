@@ -94,10 +94,16 @@ class Main:
         kf.compute_keyword_counts()
         top_500 = kf.get_top_emails(500)
         #print(top_500[["email_id", "sender", "subject", "risk_term_count"]])
+        
         # Part 3: VADER sentiment (+ urgency hits) on top keyword-ranked emails only
         top_500_scored = add_vader_scores(top_500)
-        #print(top_500_scored.head())
-        print(top_500_scored[["email_id", "sender", "subject", "risk_term_count", "sentiment_compound"]].head())
+        print(top_500_scored.head())
+    
+        first_id = top_500_scored["email_id"].iloc[0]
+        print(first_id)
+        email = df.loc[df["email_id"] == first_id].iloc[0]
+        print(email["text"])
+
 
         # ts = kf.compute_time_series(freq='W')
 

@@ -1,0 +1,35 @@
+RISK_CATEGORIES = {
+    "spe": {
+        "terms": [
+            "ljm", "raptor", "derivative", "exposure", "hedge", "loss", "write",
+            "entity", "vehicle", "partnership", "structure",
+            "guarantee", "obligation", "liability",
+            "transfer", "transaction", "deal",
+            "valuation", "mark", "market",
+            "offload", "shift", "hide",
+            "consolidation", "deconsolidation",
+            "equity", "asset", "balance",
+            "swap", "contract", "agreement",
+        ],
+        "phrases": [
+            ("off", "balance", "sheet"),
+            ("special", "purpose", "entity"),
+            ("mark", "to", "market"),
+            ("write", "down"),
+            ("structured", "finance"),
+            ("related", "party"),
+            ("third", "party", "vehicle"),
+            ("outside", "investor"),
+            ("risk", "transfer"),
+            ("move", "off", "books"),
+            ("remove", "from", "balance"),
+            ("hide", "loss"),
+            ("shift", "liability"),
+            ("guaranteed", "by"),
+            ("backed", "by"),
+            ("equity", "swap"),
+            ("special", "vehicle"),
+            ("off", "books"),
+        ],
+    }
+}
